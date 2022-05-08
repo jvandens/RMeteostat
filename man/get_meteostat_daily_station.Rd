@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_meteostat_daily_station.R
 \name{get_meteostat_daily_station}
 \alias{get_meteostat_daily_station}
-\title{Fetch daily Meteostat data for a station}
+\title{Fetch daily Meteostat data for a Station}
 \usage{
 get_meteostat_daily_station(
   iMeteostatStationId,
@@ -13,8 +13,8 @@ get_meteostat_daily_station(
 )
 }
 \arguments{
-\item{iMeteostatStationId}{- integer scalar, ID of the station as given by
-Meteostat's dictionary table of weather stations}
+\item{iMeteostatStationId}{- character scalar, ID of the station as given by
+Meteostat's dictionary table of weather stations as from \code{get_meteostat_stations()}}
 
 \item{dateStartDate}{- Date class scalar, first date of the interval for which
 the data is to be obtained}
@@ -22,22 +22,31 @@ the data is to be obtained}
 \item{dateEndDate}{- Date class scalar, last date of the interval for which
 the data is to be obtained}
 
-\item{model}{- Substitute missing records with statistically optimized model data}
+\item{model}{- Logical scalar.  Substitute missing records with statistically optimized model data}
 
-\item{cApiKey}{- character scalar, Meteostat's key to use to fetch the data}
+\item{cApiKey}{- character scalar, your meteostat api key to use to fetch the data}
 }
 \value{
-dataframe with the data fetched; the colnames are self-explanatory,
-in case of doubt cf. the implementation and API's documentation:
-https://dev.meteostat.net/api/stations/daily.html#response
+a \code{data.frame} with the data fetched; the col names are self-explanatory,
+See API's documentation: \code{https://dev.meteostat.net/api/stations/daily.html#response}
 }
 \description{
-Fetch daily Meteostat data for a station for at most yearly interval
+Fetch daily Meteostat data for a station for at most 10-year interval
 }
 \details{
 This function fetches data made available via Meteostat's API. Please note that
 due to the cap on the size of the window for which the data can be fetched,
-this function can only handle requests that ask for data for up to 370 days.
-For generalized version of this function capable of handling arbitrary
-time intervals cf. dtGetDailyStationData
+this function can only handle requests that ask for data for up to 10 years.
+See \url{https://dev.meteostat.net/api/stations/daily.html#endpoint}
+}
+\examples{
+\dontrun{
+api_key <- "------my key------"
+station <-"KMIV0"
+start <- as.Date("2021-05-01")
+end <- as.Date("2021-05-31")
+df.daily.station <- get_meteostat_daily_station(station, start, end, cApiKey = api_key)
+}
+
+
 }

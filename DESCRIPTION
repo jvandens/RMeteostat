@@ -1,6 +1,6 @@
 Package: RMeteostat
 Type: Package
-Title: Get data from Meteostat API  into R
+Title: Get data from Meteostat API into R
 Version: 0.0.1
 Author: Jaak Van den Sype, forked from okeanos.meteostat Artur Wegrzyn
 Maintainer: Jaak Van den Sype <jaak.vandensype@hdrinc.com>
@@ -9,11 +9,11 @@ Description: This package contains set of functions for retrieval of the meteoro
     Meteostat's API (https://dev.meteostat.net/api/).
     Additionally, to facilitate getting started, this package contains 
     table with the list of Meteostat's weather stations (data set is called 
-    dtStationsDict - cf. documentation for more information).
+    dtStationsDict - see documentation for more information).
     LEGAL DISCLAIMER: In line with the Meteostat's legal disclosures 
-    (cf. https://meteostat.net/en/legal) it is hereby acknowledged that 
+    (https://meteostat.net/en/legal) it is hereby acknowledged that 
     Meteostat c/o Christian Lamprecht,  Plattenseestrasse 5, 69168 Wiesloch, Germany 
-    and the Meteostat's providers  (cf. https://meteostat.net/de/sources for exhaustive list) 
+    and the Meteostat's providers  (https://meteostat.net/de/sources for exhaustive list) 
     are the owners of the data that this packages retrieves and processes.
 License: GPL-3
 Encoding: UTF-8

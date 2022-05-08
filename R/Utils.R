@@ -29,6 +29,7 @@ cGetMeteostatStatusCodeMessage <- function(iStatusCode) {
     "403" = "Forbidden: You're not allowed to access this endpoint",
     "404" = "Not Found: This endpoint doesn't exist",
     "429" = "Too Many Requests: You've exceeded the quota",
+    "500" = "Unexpected: server encountered an unexpected condition that prevented it from fulfilling the request",
     "503" = "Service Temporarily Unavailable: The API is currently down"
   )
 

@@ -1,3 +1,5 @@
+
+library(RMeteostat)
 library(mapview)
 
 api_key <- "j8ZnpuQu96KewFs4y4vL7TDoj7YFQKhg"
