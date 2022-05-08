@@ -5,18 +5,31 @@
 #' This function fetches data made available via Meteostat's API. Please note that
 #' due to the cap on the size of the window for which the data can be fetched,
 #' this function can only handle requests that ask for data for up to 30 days.
-#' @param station - station id
-#' @param cApiKey - character scalar, Meteostat's key to use to fetch the data
+#' See: \url{https://dev.meteostat.net/api/stations/hourly.html} for more information
+#'
+#' @param station - character scalar, ID of the station as given by
+#' Meteostat's dictionary table of weather stations as from \code{RMeteostat::get_meteostat_stations()}
+#' @param cApiKey - character scalar, your Meteostat's api key
 #' @param dateStartDate - Date class scalar, first date of the interval for which
 #' the data is to be obtained
 #' @param dateEndDate - Date class scalar, last date of the interval for which
 #' the data is to be obtained
-#' @param tz - timezone to return, will also include utc.  defaults to Sys.timezone()
-#' @param model - Substitute missing records with statistically optimized model data
-#' @return dataframe with the data fetched; the colnames are self-explanatory,
-#' in case of doubt cf. the implementation and API's documentation:
-#' https://dev.meteostat.net/api/stations/daily.html#response
+#' @param tz - timezone to return, will also include utc.  Defaults to your \code{Sys.timezone()}
+#' otherwise use one of \code{OlsonNames()}
+#' @param model - logical scalar. Substitute missing records with statistically optimized model data
+#' @return A \code{data.frame} with the data fetched; the col names are self-explanatory,
+#' See the API's documentation \url{https://dev.meteostat.net/api/stations/hourly.html#response} for more information
 #' @export
+#' @examples
+#' \dontrun{
+#' api_key = "------my key------"
+#' station="KMIV0"
+#' start = as.Date("2022-05-01")
+#' end = as.Date("2022-05-07")
+#' df.hourly.stn <- get_meteostat_hourly_station(station, start, end, cApiKey = api_key)
+#' }
+#'
+#'
 get_meteostat_hourly_station <- function(station, dateStartDate, dateEndDate, tz = Sys.timezone(), model= TRUE, cApiKey) {
 
   # 1. parameters validation ---------------------------------------------------
@@ -70,6 +83,7 @@ get_meteostat_hourly_station <- function(station, dateStartDate, dateEndDate, tz
   }, finally = {
     message("after fetching via GET call")
   })
+
   # 3.2. retrieve the status code and print info
   iStatusCode <- as.integer(res$status_code)
   cStatusMessage <- cGetMeteostatStatusCodeMessage(iStatusCode = iStatusCode)

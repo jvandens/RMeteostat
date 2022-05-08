@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_meteostat_hourly_point.R
 \name{get_meteostat_hourly_point}
 \alias{get_meteostat_hourly_point}
-\title{Fetch hourly Meteostat data for a point}
+\title{Fetch hourly Meteostat data for a Lat/Lon Point}
 \usage{
 get_meteostat_hourly_point(
   lat,
@@ -25,22 +25,35 @@ the data is to be obtained}
 \item{dateEndDate}{- Date class scalar, last date of the interval for which
 the data is to be obtained}
 
-\item{tz}{- timezone to return, will also include utc.  defaults to Sys.timezone()}
+\item{tz}{- timezone to return, will also include utc.  Defaults to your \code{Sys.timezone()}
+otherwise use one of \code{OlsonNames()}}
 
-\item{model}{-      Substitute missing records with statistically optimized model data}
+\item{model}{- logical scalar. Substitute missing records with statistically optimized model data}
 
-\item{cApiKey}{- character scalar, Meteostat's key to use to fetch the data}
+\item{cApiKey}{- character scalar, our yMeteostat's api key}
 }
 \value{
-dataframe with the data fetched; the colnames are self-explanatory,
-in case of doubt cf. the implementation and API's documentation:
-https://dev.meteostat.net/api/stations/daily.html#response
+A \code{data.frame} with the data fetched; the col names are self-explanatory,
+See API's documentation: \code{https://dev.meteostat.net/api/point/hourly.html#response} for more information
 }
 \description{
-Fetch hourly Meteostat data for a point for at most 30 day interval
+Fetch hourly Meteostat data for a Point for at most 30 day interval
 }
 \details{
 This function fetches data made available via Meteostat's API. Please note that
 due to the cap on the size of the window for which the data can be fetched,
 this function can only handle requests that ask for data for up to 30 days.
+See \url{https://dev.meteostat.net/api/point/hourly.html#endpoint} for more details
+}
+\examples{
+\dontrun{
+api_key = "------my key------"
+lat = 39.463274533806
+lon = -75.058413698121
+start = as.Date("2022-05-01")
+end = as.Date("2022-05-07")4
+df.hourly.point <- get_meteostat_hourly_point(lat, lon, start, end, cApiKey = api_key)
+}
+
+
 }

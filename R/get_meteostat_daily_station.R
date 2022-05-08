@@ -8,22 +8,22 @@
 #' See \url{https://dev.meteostat.net/api/stations/daily.html#endpoint}
 #'
 #' @param iMeteostatStationId - character scalar, ID of the station as given by
-#' Meteostat's dictionary table of weather stations as from \code{get_meteostat_stations()}
+#' Meteostat's dictionary table of weather stations as from \code{RMeteostat::get_meteostat_stations()}
 #' @param cApiKey - character scalar, your meteostat api key to use to fetch the data
 #' @param dateStartDate - Date class scalar, first date of the interval for which
 #' the data is to be obtained
 #' @param dateEndDate - Date class scalar, last date of the interval for which
 #' the data is to be obtained
 #' @param model - Logical scalar.  Substitute missing records with statistically optimized model data
-#' @return a \code{data.frame} with the data fetched; the col names are self-explanatory,
+#' @return A \code{data.frame} with the data fetched; the col names are self-explanatory,
 #' See API's documentation: \code{https://dev.meteostat.net/api/stations/daily.html#response}
 #' @export
 #' @examples
 #' \dontrun{
-#' api_key <- "------my key------"
-#' station <-"KMIV0"
-#' start <- as.Date("2021-05-01")
-#' end <- as.Date("2021-05-31")
+#' api_key = "------my key------"
+#' station = "KMIV0"
+#' start = as.Date("2021-05-01")
+#' end = as.Date("2021-05-31")
 #' df.daily.station <- get_meteostat_daily_station(station, start, end, cApiKey = api_key)
 #' }
 #'
