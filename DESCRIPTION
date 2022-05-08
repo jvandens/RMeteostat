@@ -4,6 +4,8 @@ Title: Get data from Meteostat API into R
 Version: 0.0.1
 Author: Jaak Van den Sype, forked from okeanos.meteostat Artur Wegrzyn
 Maintainer: Jaak Van den Sype <jaak.vandensype@hdrinc.com>
+URL: https://github.com/jvandens/RMeteostat
+BugReports: https://github.com/jvandens/RMeteostat/issues
 Description: This package contains set of functions for retrieval of the meteorological
     data made available by Meteostat (https://meteostat.net/) using 
     Meteostat's API (https://dev.meteostat.net/api/).
