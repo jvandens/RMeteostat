@@ -1,7 +1,7 @@
 Package: RMeteostat
 Type: Package
 Title: Get data from Meteostat API into R
-Version: 0.0.1
+Version: 0.1.0
 Author: Jaak Van den Sype, forked from okeanos.meteostat Artur Wegrzyn
 Maintainer: Jaak Van den Sype <jaak.vandensype@hdrinc.com>
 URL: https://github.com/jvandens/RMeteostat
